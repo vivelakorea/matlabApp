@@ -6,10 +6,7 @@ classdef todolist < matlab.apps.AppBase
         createButton        matlab.ui.control.Button
         todoEditField       matlab.ui.control.EditField
         todoEditFieldLabel  matlab.ui.control.Label
-    end
-
-    % let's add some more properties...
-    properties (Access = public)
+        
         todoBtns            cell
     end
     
@@ -22,8 +19,6 @@ classdef todolist < matlab.apps.AppBase
                 "Position", [50 + 110*fix(id/7), ...
                              100 + 50*mod(id, 7), ... 
                              100, 30]);
-            
-            
         end
         
         function deleteBtn(~, event)
@@ -44,7 +39,7 @@ classdef todolist < matlab.apps.AppBase
         end
 
         % Callback function: createButton, todoEditField
-        function createButtonPushed(app, event)
+        function createButtonPushed(app, ~)
             if size(app.todoBtns, 2) < 35
                 val = app.todoEditField.Value;
                 app.todoEditField.Value = "";
